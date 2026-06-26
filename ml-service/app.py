@@ -90,6 +90,25 @@ def root():
 def health():
     return {"status": "ok", "model_loaded": model is not None}
 
+@app.get("/predict")
+def predict_get():
+    return {
+        "message": "Use POST method to send prediction data.",
+        "method": "POST",
+        "url": "/predict",
+        "content_type": "application/json",
+        "example_body": {
+            "N": 90,
+            "P": 42,
+            "K": 43,
+            "temperature": 25,
+            "humidity": 80,
+            "ph": 6.5,
+            "rainfall": 200
+        },
+        "hint": "Send a POST request with the above JSON body to get a crop recommendation."
+    }
+
 @app.post("/predict")
 def predict(data: CropInput):
     if model is None:
