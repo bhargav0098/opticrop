@@ -1,0 +1,12 @@
+# Keep model files (needed for deployment)
+# !model/crop_model.pkl
+# !model/accuracy_report.json
+
+__pycache__/
+*.pyc
+.env
+*.egg-info/
+dist/
+build/
+.venv/
+venv/

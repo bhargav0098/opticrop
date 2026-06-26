@@ -1,0 +1,164 @@
+==============================================================
+  APSCE – OptiCrop Project: Task Division Among 5 Members
+  Course: Smart Agricultural Production Optimizing Engine
+==============================================================
+
+PROJECT: OptiCrop – AI-powered Crop Recommendation System
+DATASET: chitrakumari25/smart-agricultural-production-optimizing-engine (Kaggle)
+TOTAL TASKS: 28 tasks across 6 Epics + Pre-requisites + Conclusion
+
+--------------------------------------------------------------
+ MEMBER 1 – PRIYA (Project Lead + Problem Definition)
+--------------------------------------------------------------
+Epic / Task                                  | Mode
+─────────────────────────────────────────────┼──────────────
+Entity Relationship Diagram                  | On Paper/PDF
+Pre-requisites                               | Paper/Report
+Workflow (Project Flow)                      | Diagram (PDF)
+Specify the Business Problem                 | Report (PDF)
+Business Requirements                        | Report (PDF)
+Literature Survey                            | Report (PDF)
+Social and Business Impact                   | Report (PDF)
+
+Deliverables:
+  → TaskDeliverables_Member1_Priya.pdf  (Business docs)
+  → ER_Diagram_Member1.pdf              (Entity Relationship Diagram)
+
+--------------------------------------------------------------
+ MEMBER 2 – ARJUN (Data Collection & EDA)
+--------------------------------------------------------------
+Epic / Task                                  | Mode
+─────────────────────────────────────────────┼──────────────
+Download the Dataset (Kaggle)                | Code (Python)
+Importing the Libraries                      | Code (Python)
+Read the Dataset                             | Code (Python)
+Univariate Analysis                          | Code + Images
+Bivariate Analysis                           | Code + Images
+Multivariate Analysis                        | Code + Images
+
+Files to deliver:
+  → ml-service/eda_analysis.py          (full EDA script)
+  → ml-service/images/01_univariate_histograms.png
+  → ml-service/images/02_univariate_crop_counts.png
+  → ml-service/images/03_univariate_boxplots.png
+  → ml-service/images/04_bivariate_violin.png
+  → ml-service/images/05_bivariate_scatter_temp_rain.png
+  → ml-service/images/06_bivariate_scatter_N_K.png
+  → ml-service/images/07_bivariate_mean_features.png
+  → ml-service/images/08_multivariate_correlation.png
+  → ml-service/images/09_multivariate_pairplot.png
+  → ml-service/images/10_multivariate_pca.png
+  → ml-service/images/11_multivariate_kmeans.png
+  → ml-service/images/12_multivariate_radar.png
+
+How to run:
+  cd ml-service
+  pip install kagglehub[pandas-datasets] matplotlib seaborn scikit-learn
+  python eda_analysis.py
+
+--------------------------------------------------------------
+ MEMBER 3 – SNEHA (Data Pre-processing)
+--------------------------------------------------------------
+Epic / Task                                  | Mode
+─────────────────────────────────────────────┼──────────────
+Checking for Null Values                     | Code (Python)
+Handling Outliers                            | Code (Python)
+Extracting Seasonal Crops                    | Code (Python)
+Splitting Data into Train and Test Sets      | Code (Python)
+
+Files to deliver:
+  → ml-service/preprocess.py            (pre-processing pipeline)
+
+Notes:
+  - Use IQR method for outlier detection and capping
+  - Seasonal split: Kharif / Rabi / Zaid based on label lookup
+  - Train/Test split: 80/20, stratified by label
+  - Save cleaned dataset to ml-service/data/crop_cleaned.csv
+
+--------------------------------------------------------------
+ MEMBER 4 – VIKRAM (Model Building & Evaluation)
+--------------------------------------------------------------
+Epic / Task                                  | Mode
+─────────────────────────────────────────────┼──────────────
+K-Means Clustering                           | Code (Python)
+Logistic Regression                          | Code (Python)
+Evaluating Model Performance & Best Model    | Code (Python)
+Predict Best Crop Based on Given Parameters  | Code (Python)
+
+Files to deliver:
+  → ml-service/train.py                 (already exists – extend)
+  → ml-service/model/crop_model.pkl     (best trained model)
+  → ml-service/model/accuracy_report.json
+
+How to run training:
+  cd ml-service
+  pip install scikit-learn pandas numpy
+  python train.py
+
+Notes:
+  - Models to compare: Random Forest, Decision Tree, KNN, Logistic Regression
+  - Save best model (highest accuracy) as crop_model.pkl
+  - Print classification report for best model
+
+--------------------------------------------------------------
+ MEMBER 5 – KAVYA (Application Building & Deployment)
+--------------------------------------------------------------
+Epic / Task                                  | Mode
+─────────────────────────────────────────────┼──────────────
+Building HTML Pages (Frontend)               | React/JSX
+Build Python Backend Code (ML API)           | FastAPI (Python)
+Run the Application                          | Terminal
+Conclusion                                   | Report (PDF)
+
+Files to deliver:
+  → backend/.env                        (already fixed – port, MongoDB, JWT)
+  → frontend/.env                       (already fixed – VITE_API_URL)
+  → ml-service/app.py                   (FastAPI ML service – already done)
+  → TaskDeliverables_Member5_Conclusion.pdf
+
+How to run the full application:
+  # Terminal 1 – Backend
+  cd backend && npm install && npm run dev
+
+  # Terminal 2 – Frontend
+  cd frontend && npm install && npm run dev
+
+  # Terminal 3 – ML Service (optional)
+  cd ml-service && pip install -r requirements.txt
+  python train.py          ← run once to create model
+  uvicorn app:app --reload --port 8000
+
+--------------------------------------------------------------
+ SUMMARY TABLE
+--------------------------------------------------------------
+Member   | Name    | Epics/Tasks Covered                    | Deliverable Type
+─────────┼─────────┼────────────────────────────────────────┼──────────────────
+Member 1 | Priya   | Pre-req + Epic 1 (7 tasks)             | PDF / Paper
+Member 2 | Arjun   | Epic 2 (6 tasks + EDA images)          | Python + Images
+Member 3 | Sneha   | Epic 3 (4 tasks, Pre-processing)       | Python script
+Member 4 | Vikram  | Epic 4 (4 tasks, Model Building)       | Python + .pkl
+Member 5 | Kavya   | Epic 5 + Conclusion (5 tasks)          | Full App + PDF
+
+--------------------------------------------------------------
+ SHARED RESPONSIBILITIES (ALL 5 MEMBERS)
+--------------------------------------------------------------
+• Weekly progress meeting (every Friday)
+• Code review via GitHub pull requests
+• Final documentation and presentation slides
+
+==============================================================
+  FILES TO SUBMIT ON PAPER / PDF
+==============================================================
+The following items MUST be submitted as a physical paper or
+printed PDF (not code):
+
+1. Entity Relationship Diagram       → Member 1 (Priya)
+2. Project Workflow Diagram          → Member 1 (Priya)
+3. Business Requirements Document    → Member 1 (Priya)
+4. Literature Survey (min 5 papers)  → Member 1 (Priya)
+5. Social & Business Impact Report   → Member 1 (Priya)
+6. Conclusion                        → Member 5 (Kavya)
+
+All PDFs to be combined into:  OptiCrop_Final_Report.pdf
+
+==============================================================

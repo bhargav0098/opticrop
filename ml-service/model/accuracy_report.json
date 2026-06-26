@@ -1,0 +1,44 @@
+{
+  "best_model": "Random Forest",
+  "best_accuracy": 91.59,
+  "all_models": {
+    "Random Forest": 91.59,
+    "Decision Tree": 87.5,
+    "KNN": 84.77,
+    "Logistic Regression": 88.41,
+    "K-Means (clustering)": "N/A (unsupervised)"
+  },
+  "crops": [
+    "apple",
+    "banana",
+    "blackgram",
+    "chickpea",
+    "coconut",
+    "cotton",
+    "grapes",
+    "jute",
+    "kidneybeans",
+    "lentil",
+    "maize",
+    "mango",
+    "mothbeans",
+    "mungbean",
+    "muskmelon",
+    "orange",
+    "papaya",
+    "pigeonpeas",
+    "pomegranate",
+    "rice",
+    "watermelon",
+    "wheat"
+  ],
+  "features": [
+    "N",
+    "P",
+    "K",
+    "temperature",
+    "humidity",
+    "ph",
+    "rainfall"
+  ]
+}
