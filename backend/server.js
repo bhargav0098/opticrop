@@ -11,8 +11,10 @@ connectDB();
 
 // Middleware
 app.use(cors({
-  origin: true,
-  credentials: true,
+    origin: [
+        "https://opticrop-flame.vercel.app"
+    ],
+    credentials: true
 }));
 app.use(express.json());
 app.use(morgan("dev"));
