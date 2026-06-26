@@ -10,19 +10,10 @@ const app = express();
 connectDB();
 
 // Middleware
-const allowedOrigins = [
-  process.env.FRONTEND_URL || "http://localhost:5173",
-  "http://localhost:5173",
-  "http://127.0.0.1:5173",
-];
 app.use(cors({
-  origin: (origin, cb) => {
-    if (!origin || allowedOrigins.includes(origin)) return cb(null, true);
-    return cb(new Error("CORS: origin not allowed"));
-  },
+  origin: true,
   credentials: true,
 }));
-app.options("*", cors());
 app.use(express.json());
 app.use(morgan("dev"));
 
